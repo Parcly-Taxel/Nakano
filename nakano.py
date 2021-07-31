@@ -352,4 +352,5 @@ def n(pat_string, rule="b3s23", outfn="osc.png", scale=16):
     res = analyse(pat_string, rule)
     resultprint(res)
     if res["dxy"] == (0, 0):
+        print()
         periodmap(res["cellperiods"], outfn, scale)

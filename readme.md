@@ -30,6 +30,7 @@ Heat 115–196, average 162.33
 Temperature 0.3361 (0.3950 rotor)
 Bounding box 41×33 = 1353
 Rules B3/S23-k – B34q5c6ci/S234cy6i7e (OT B3/S23)
+
 p96 – ffffff
 p48 – 1c92cd
 p12 – 0ab87b
@@ -62,13 +63,34 @@ Key | Value
 `p` | The overall oscillator period. There may be no cells with this period – their presence or absence is indicated by strict volatility (see below).
 `dxy` | A pair of integers representing displacement in the x and y directions per period.
 `apgcode` | The pattern's apgcode.
-`syms` | A triple (base symmetry, temporal symmetry, mod). The first two elements are individually one of the 16 possible "official" [symmetries](https://conwaylife.com/wiki/Symmetry) that may be specified in an apgsearch (excluding `D8_+2` which Conway's Life does not respect). Base symmetry only looks at individual phases while temporal symmetry considers all of them together; mod is the least number of generations for the pattern to reappear, possibly under a transformation. There are 43 possibilities for the first two elements together.
+`syms` | A triple (base symmetry, temporal symmetry, mod). The first two elements are individually one of the 16 possible "official" [symmetries](https://conwaylife.com/wiki/Symmetry) that may be specified in an apgsearch (excluding `D8_+2` which Conway's Life does not respect). Base symmetry only looks at individual phases while temporal symmetry considers all of them together; mod is the least number of generations for the pattern to reappear, possibly under a transformation. There are 43 possibilities for the first two elements together (see table below).
 `pops` | List of successive populations of the object, of length `p`. The presence of this field allows more complicated statistics to be performed on the population (standard deviation, etc.)
 `popstats` | A quadruple (minimum population, maximum population, average population, sum of populations across a period). The last element does not convey any further _substantial_ information – the average population is a standard floating-point number, so the last element allows more accurate computation of the average population should such accuracy be desired.
 `heats` | List of successive heats (births + deaths) of the object, of length `p`.
 `heatstats` | A quadruple (minimum heat, maximum heat, average heat, sum of heats across a period). See the descriptions of `pops` and `popstats` for justification of the seemingly extraneous data.
 `bb` | Measurements of the bounding box: (width, height, cell count [width × height]).
 `rules` | A quadruple (isotropic minrule, isotropic maxrule, outer-totalistic (OT) minrule, OT maxrule). The last two entries are `None` if the pattern does not work in any OT rule.
+
+The 43 possible combinations of base and temporal symmetries were enumerated in [Dean Hickerson's oscillator stamp collection](http://radicaleye.com/DRH/stamps.html):
+
+Base symmetry (mod = period) | Half-period temporal symmetries | Quarter-period
+---------------------------- | --------------------------------| --------------
+`C1` | `C2_1`, `C2_2`, `C2_4`, `D2_+1`, `D2_+2`, `D2_x` | `C4_1`, `C4_4`
+`C2_1` | `C4_1`, `D4_+1`, `D4_x1`
+`C2_2` | `D4_+2`
+`C2_4` | `C4_4`, `D4_+4`, `D4_x4`
+`C4_1` | `D8_1`
+`C4_4` | `D8_4`
+`D2_+1` | `D4_+1`, `D4_+2`
+`D2_+2` | `D4_+2`, `D4_+4`
+`D2_x` | `D4_x1`, `D4_x4`
+`D4_+1` | `D8_1`
+`D4_+2` |
+`D4_+4` | `D8_4`
+`D4_x1` | `D8_1`
+`D4_x4` | `D8_4`
+`D8_1` |
+`D8_4` |
 
 The following fields are only computed for oscillators (and still lifes, which are p1 oscillators):
 
@@ -82,4 +104,4 @@ Key | Value
 
 ----
 
-For auditing purposes the script that generated the `mooreconfs` array, essentially a lookup table mapping neighbourhood configurations to Hensel codes, is included as `mooreconfgen.py`.
+For auditing purposes the script that generated the `mooreconfs` array, essentially a lookup table mapping neighbourhood configurations to Hensel codes, is included as `mooreconfgen.py`. The function `minmaxrule()`, accepting a lifelib Pattern and a number of generations, is not limited to periodic objects and may be used for any pattern whatsoever – the only condition is that the provided rule and number of generations be of interest.
