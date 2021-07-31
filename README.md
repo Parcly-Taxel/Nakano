@@ -1,2 +1,0 @@
-# Nakano
-The modern Oscillizer

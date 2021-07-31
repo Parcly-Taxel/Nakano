@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+  <path fill="#ccc" d="M0 0h300v300H0z"/>
+  <path fill="#1c92cd" d="M150 50h50v50h-50z"/>
+  <path fill="#0ab87b" d="M200 50h50v50h-50z"/>
+  <path fill="#e86075" d="M50 100h50v50H50z"/>
+  <path fill="#f8f290" d="M100 100h50v50h-50z"/>
+  <path fill="#ba4117" d="M150 100h50v50h-50z"/>
+  <path fill="#d91e9b" d="M200 100h50v50h-50z"/>
+  <path fill="#aeaeae" d="M50 150h50v50H50z"/>
+  <path fill="#bef0e9" d="M100 150h50v50h-50z"/>
+  <path fill="#428c28" d="M150 150h50v50h-50z"/>
+  <path fill="#6f1044" d="M200 150h50v50h-50z"/>
+  <path fill="#76adf4" d="M50 200h50v50H50z"/>
+  <path fill="#2f5963" d="M100 200h50v50h-50z"/>
+  <path fill="#d9b790" d="M150 200h50v50h-50z"/>
+  <path d="M162.5 162.5h25v25h-25zm-50-50h25v25h-25zm100 0h25v25h-25zm0-50h25v25h-25zm-150 150h25v25h-25zm0-50h25v25h-25zm0-50h25v25h-25zM200 200h50v50h-50zM50 50h50v50H50z"/>
+  <path d="M212.5 162.5h25v25h-25zM100 50h50v50h-50z" fill="#fff"/>
+</svg>
