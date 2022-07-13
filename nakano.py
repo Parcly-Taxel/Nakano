@@ -354,3 +354,12 @@ def n(pat_string, rule="b3s23", outfn="osc.png", scale=16):
     if res["dxy"] == (0, 0):
         print()
         periodmap(res["cellperiods"], outfn, scale)
+
+def s(pat_string, rule="b3s23"):
+    """Interactive function providing a corresponding line for the fixed list
+    in the Skopje repository: [p] [apgcode] [minpop]. Oscillators with
+    zero strict volatility will raise a ValueError."""
+    res = analyse(pat_string, rule)
+    if res["volstats"][1] == 0:
+        raise ValueError("oscillator is trivial")
+    print(res["p"], res["apgcode"], res["popstats"][0])
